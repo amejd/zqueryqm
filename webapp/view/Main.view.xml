@@ -1,0 +1,306 @@
+<mvc:View
+    controllerName="zqm.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:table="sap.ui.table"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <sfb:SmartFilterBar
+            id="smartFilterBar"
+            entitySet="ZC_QueryVendor"
+            basicSearchFieldName="Lifnr"
+            persistencyKey="UniqueAndStablePersistencyKey"
+        >
+            <sfb:controlConfiguration>
+                <sfb:ControlConfiguration
+                    id="_IDGenControlConfiguration1"
+                    key="Lifnr"
+                    label="Fournisseur"
+                    visibleInAdvancedArea="true"
+                    filterType="single"
+                />
+                <sfb:ControlConfiguration
+                    id="_IDGenControlConfiguration2"
+                    key="class"
+                    label="Classe"
+                    visibleInAdvancedArea="true"
+                    filterType="single"
+                />
+                <!-- <sfb:ControlConfiguration
+                    id="_IDGenControlConfiguration3"
+                    key="klart"
+                    label="Categorie"
+                    visibleInAdvancedArea="true"
+                    filterType="single"
+                /> -->
+            </sfb:controlConfiguration>
+        </sfb:SmartFilterBar>
+
+        <table:Table
+            id="table"
+            rows="{/}"
+            selectionMode="MultiToggle"
+            paste="onPaste"
+            ariaLabelledBy="title"
+        >
+            <table:extension>
+                <OverflowToolbar
+                    id="_IDGenOverflowToolbar1"
+                    style="Clear"
+                >
+                    <Title
+                        id="title"
+                        text="Fournisseurs"
+                    />
+                    <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+					<Button id="_IDGenButton1" type="Accept" press="onExtractData" icon="sap-icon://excel-attachment"/>
+                </OverflowToolbar>
+            </table:extension>
+            <table:columns>
+                <!-- Lifnr -->
+                <table:Column
+                    id="columnLifnr"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelLifnr"
+                        text="{i18n>Lifnr}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textLifnr"
+                            text="{Lifnr}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Name1 -->
+                <table:Column
+                    id="columnName1"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelName1"
+                        text="{i18n>Name1}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textName1"
+                            text="{Name1}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Ernam -->
+                <table:Column
+                    id="columnErnam"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelErnam"
+                        text="{i18n>Ernam}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textErnam"
+                            text="{Ernam}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Erdat -->
+                <table:Column
+                    id="columnErdat"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelErdat"
+                        text="{i18n>Erdat}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textErdat"
+                            text="{path: 'Erdat', formatter: '.formatDate'}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Aedat -->
+                <table:Column
+                    id="columnAedat"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelAedat"
+                        text="{i18n>Aedat}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textAedat"
+                            text="{path: 'Aedat', formatter: '.formatDate'}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Usnam -->
+                <table:Column
+                    id="columnUsnam"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelUsnam"
+                        text="{i18n>Usnam}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textUsnam"
+                            text="{Usnam}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- CATEGORIE_FOURNISSEUR -->
+                <table:Column
+                    id="columnCategorieFournisseur"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelCategorieFournisseur"
+                        text="{i18n>CATEGORIE_FOURNISSEUR}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textCategorieFournisseur"
+                            text="{CATEGORIE_FOURNISSEUR}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- QUALIFICATION -->
+                <table:Column
+                    id="columnQualification"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelQualification"
+                        text="{i18n>QUALIFICATION}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textQualification"
+                            text="{QUALIFICATION}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- ENTENTE_QUALITE -->
+                <table:Column
+                    id="columnEntenteQualite"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelEntenteQualite"
+                        text="{i18n>ENTENTE_QUALITE}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textEntenteQualite"
+                            text="{ENTENTE_QUALITE}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- class -->
+                <table:Column
+                    id="columnClass"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelClass"
+                        text="{i18n>class}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textClass"
+                            text="{class}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- klart -->
+                <table:Column
+                    id="columnKlart"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelKlart"
+                        text="{i18n>klart}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textKlart"
+                            text="{klart}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Xdele -->
+                <table:Column
+                    id="columnXdele"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelXdele"
+                        text="{i18n>Xdele}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textXdele"
+                            text="{Xdele}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- Xblck -->
+                <table:Column
+                    id="columnXblck"
+                    width="11rem"
+                >
+                    <Label
+                        id="labelXblck"
+                        text="{i18n>Xblck}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textXblck"
+                            text="{Xblck}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:Table>
+
+        <BusyDialog id="BusyDialog" />
+    </Page>
+</mvc:View>
