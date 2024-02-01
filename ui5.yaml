@@ -20,6 +20,10 @@ server:
             url: http://hqsd1-110:9000
             client: '110'
             destination: hqsd1-110
+          - path: /sap
+            url: http://hqsd1-110:9000
+            client: '110'
+            destination: hqsd1-110
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -32,5 +36,5 @@ server:
         component: zqm
         ui5Theme: sap_horizon
 resources:
-    configuration:
-        propertiesFileSourceEncoding: UTF-8
+  configuration:
+    propertiesFileSourceEncoding: UTF-8

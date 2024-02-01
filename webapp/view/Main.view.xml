@@ -8,6 +8,7 @@
     xmlns:table="sap.ui.table"
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml"
 >
     <Page
         id="page"
@@ -34,16 +35,9 @@
                     visibleInAdvancedArea="true"
                     filterType="single"
                 />
-                <!-- <sfb:ControlConfiguration
-                    id="_IDGenControlConfiguration3"
-                    key="klart"
-                    label="Categorie"
-                    visibleInAdvancedArea="true"
-                    filterType="single"
-                /> -->
             </sfb:controlConfiguration>
         </sfb:SmartFilterBar>
-
+ <html:a id="hiddenLink"></html:a> 
         <table:Table
             id="table"
             rows="{/}"
@@ -61,32 +55,19 @@
                         text="Fournisseurs"
                     />
                     <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                    <Button id="_IDGenButton2"
+							icon="sap-icon://refresh"
+							tooltip="Effacer tous les filtres"
+							press="onClearAllFilters"/>
 					<Button id="_IDGenButton1" type="Accept" press="onExtractData" icon="sap-icon://excel-attachment"/>
                 </OverflowToolbar>
             </table:extension>
             <table:columns>
-                <!-- Lifnr -->
-                <table:Column
-                    id="columnLifnr"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelLifnr"
-                        text="{i18n>Lifnr}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textLifnr"
-                            text="{Lifnr}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
                 <!-- Name1 -->
                 <table:Column
                     id="columnName1"
                     width="11rem"
+                    sortProperty="Name1" filterProperty="Name1"
                 >
                     <Label
                         id="labelName1"
@@ -101,10 +82,144 @@
                     </table:template>
                 </table:Column>
 
+                <!-- Lifnr -->
+                <table:Column
+                    id="columnLifnr"
+                    width="11rem"
+                    sortProperty="Lifnr" filterProperty="Lifnr"
+                >
+                    <Label
+                        id="labelLifnr"
+                        text="{i18n>Lifnr}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textLifnr"
+                            text="{Lifnr}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- CATEGORIE_FOURNISSEUR -->
+                <table:Column
+                    id="columnCategorieFournisseur"
+                    width="11rem"
+                    sortProperty="CategorieFournisseur" filterProperty="CategorieFournisseur"
+                >
+                    <Label
+                        id="labelCategorieFournisseur"
+                        text="{i18n>CATEGORIE_FOURNISSEUR}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textCategorieFournisseur"
+                            text="{CategorieFournisseur}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- QUALIFICATION -->
+                <table:Column
+                    id="columnQualification"
+                    width="11rem"
+                    sortProperty="Qualification" filterProperty="Qualification"
+                >
+                    <Label
+                        id="labelQualification"
+                        text="{i18n>QUALIFICATION}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textQualification"
+                            text="{Qualification}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- ENTENTE_QUALITE -->
+                <table:Column
+                    id="columnEntenteQualite"
+                    width="11rem"
+                    sortProperty="EntenteQualite" filterProperty="EntenteQualite"
+                >
+                    <Label
+                        id="labelEntenteQualite"
+                        text="{i18n>ENTENTE_QUALITE}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textEntenteQualite"
+                            text="{EntenteQualite}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- CATEGORIE_FOURNISSEUR old -->
+                <table:Column
+                    id="columnCategorieFournisseurOld"
+                    width="11rem"
+                    sortProperty="CategorieFournisseurOld" filterProperty="CategorieFournisseurOld"
+                >
+                    <Label
+                        id="labelCategorieFournisseurold"
+                        text="{i18n>CATEGORIE_FOURNISSEUR_OLD}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textCategorieFournisseurold"
+                            text="{CategorieFournisseurOld}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- QUALIFICATION old -->
+                <table:Column
+                    id="columnQualificationold"
+                    width="11rem"
+                    sortProperty="QualificationOld" filterProperty="QualificationOld"
+                >
+                    <Label
+                        id="labelQualificationold"
+                        text="{i18n>QUALIFICATION_OLD}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textQualificationOld"
+                            text="{QualificationOld}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
+                <!-- ENTENTE_QUALITE old -->
+                <table:Column
+                    id="columnEntenteQualiteOld"
+                    width="11rem"
+                    sortProperty="EntenteQualiteOld" filterProperty="EntenteQualiteOld"
+                >
+                    <Label
+                        id="labelEntenteQualiteOld"
+                        text="{i18n>ENTENTE_QUALITE_OLD}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textEntenteQualiteOld"
+                            text="{EntenteQualiteOld}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+
                 <!-- Ernam -->
                 <table:Column
                     id="columnErnam"
                     width="11rem"
+                    sortProperty="Ernam" filterProperty="Ernam"
                 >
                     <Label
                         id="labelErnam"
@@ -123,6 +238,7 @@
                 <table:Column
                     id="columnErdat"
                     width="11rem"
+                    sortProperty="Erdat" filterProperty="Erdat"
                 >
                     <Label
                         id="labelErdat"
@@ -137,167 +253,45 @@
                     </table:template>
                 </table:Column>
 
-                <!-- Aedat -->
+                <!-- Username -->
                 <table:Column
-                    id="columnAedat"
+                    id="columnUsername"
                     width="11rem"
+                    sortProperty="Ernam" filterProperty="Ernam"
                 >
                     <Label
-                        id="labelAedat"
-                        text="{i18n>Aedat}"
+                        id="labelUsername"
+                        text="{i18n>Username}"
                     />
                     <table:template>
                         <Text
-                            id="textAedat"
-                            text="{path: 'Aedat', formatter: '.formatDate'}"
+                            id="textUsername"
+                            text="{Username}"
                             wrapping="false"
                         />
                     </table:template>
                 </table:Column>
 
-                <!-- Usnam -->
+                <!-- Udate -->
                 <table:Column
-                    id="columnUsnam"
+                    id="columnUdate"
                     width="11rem"
+                    sortProperty="Udate" filterProperty="Udate"
                 >
                     <Label
-                        id="labelUsnam"
-                        text="{i18n>Usnam}"
+                        id="labelUdate"
+                        text="{i18n>Udate}"
                     />
                     <table:template>
                         <Text
-                            id="textUsnam"
-                            text="{Usnam}"
+                            id="textUdate"
+                            text="{path: 'Udate', formatter: '.formatDate'}"
                             wrapping="false"
                         />
                     </table:template>
                 </table:Column>
+                
 
-                <!-- CATEGORIE_FOURNISSEUR -->
-                <table:Column
-                    id="columnCategorieFournisseur"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelCategorieFournisseur"
-                        text="{i18n>CATEGORIE_FOURNISSEUR}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textCategorieFournisseur"
-                            text="{CATEGORIE_FOURNISSEUR}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
-                <!-- QUALIFICATION -->
-                <table:Column
-                    id="columnQualification"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelQualification"
-                        text="{i18n>QUALIFICATION}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textQualification"
-                            text="{QUALIFICATION}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
-                <!-- ENTENTE_QUALITE -->
-                <table:Column
-                    id="columnEntenteQualite"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelEntenteQualite"
-                        text="{i18n>ENTENTE_QUALITE}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textEntenteQualite"
-                            text="{ENTENTE_QUALITE}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
-                <!-- class -->
-                <table:Column
-                    id="columnClass"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelClass"
-                        text="{i18n>class}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textClass"
-                            text="{class}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
-                <!-- klart -->
-                <table:Column
-                    id="columnKlart"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelKlart"
-                        text="{i18n>klart}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textKlart"
-                            text="{klart}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
-                <!-- Xdele -->
-                <table:Column
-                    id="columnXdele"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelXdele"
-                        text="{i18n>Xdele}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textXdele"
-                            text="{Xdele}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-
-                <!-- Xblck -->
-                <table:Column
-                    id="columnXblck"
-                    width="11rem"
-                >
-                    <Label
-                        id="labelXblck"
-                        text="{i18n>Xblck}"
-                    />
-                    <table:template>
-                        <Text
-                            id="textXblck"
-                            text="{Xblck}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
             </table:columns>
         </table:Table>
 

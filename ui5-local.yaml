@@ -34,6 +34,10 @@ server:
             url: http://hqsd1-110:9000
             client: '110'
             destination: hqsd1-110
+          - path: /sap
+            url: http://hqsd1-110:9000
+            client: '110'
+            destination: hqsd1-110
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
 specVersion: "3.1"
 metadata:
   name: zqm
@@ -9,7 +7,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
         ui5:
           path:
             - /resources
@@ -18,7 +16,11 @@ server:
         backend:
           - path: /sap
             url: http://hqsd1-110:9000
-            client: '110'
+            client: "110"
+            destination: hqsd1-110
+          - path: /sap
+            url: http://hqsd1-110:9000
+            client: "110"
             destination: hqsd1-110
     - name: fiori-tools-appreload
       afterMiddleware: compression
@@ -36,3 +38,12 @@ server:
             mockdataPath: ./webapp/localService/data
             generateMockData: true
         annotations: []
+        service:
+          - urlPath: /sap/opu/odata/sap/ZC_QUERYVENDOR_CDS
+            generateMockData: true
+            metadataXmlPath: ./webapp/localService/mainService/metadata.xml
+            mockdataRootPath: ./webapp/localService/data
+          - urlPath: /sap/opu/odata/sap/ZGW_QM_VENDORQUERY_SRV/
+            metadataXmlPath: ./webapp/localService/ZGW_QM_VENDORQUERY_SRV/metadata.xml
+            mockdataRootPath: ./webapp/localService/ZGW_QM_VENDORQUERY_SRV/mockdata
+            generateMockData: true
