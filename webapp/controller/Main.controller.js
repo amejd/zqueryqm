@@ -67,12 +67,12 @@ sap.ui.define([
                                     if (e.EntenteQualite == '') {
                                         e.EntenteQualite = 'S/O'
                                     }
-                                    if (e.QualificationOld == '') {
-                                        e.QualificationOld = 'S/O'
-                                    }
-                                    if (e.EntenteQualiteOld == '') {
-                                        e.EntenteQualiteOld = 'S/O'
-                                    }
+                                    // if (e.QualificationOld == '') {
+                                    //     e.QualificationOld = 'S/O'
+                                    // }
+                                    // if (e.EntenteQualiteOld == '') {
+                                    //     e.EntenteQualiteOld = 'S/O'
+                                    // }
                                     // if (e.EntenteQualite != '') {
                                     //     e.EntenteQualite = 'Requis'
                                     // }
@@ -81,9 +81,13 @@ sap.ui.define([
                                     // }
                                     if (e.QualificationOld == 'QUALIFICATION REQUISE') {
                                         e.QualificationOld = 'Requis'
+                                    }else{
+                                        e.QualificationOld = 'S/O'
                                     }
-                                    if (e.EntenteQualiteOld != 'ENTENTE QUALITÉ REQUISE') {
+                                    if (e.EntenteQualiteOld == 'ENTENTE QUALITÉ REQUISE') {
                                         e.EntenteQualiteOld = 'Requis'
+                                    }else{
+                                        e.EntenteQualiteOld = 'S/O'
                                     }
 
                                     return e
