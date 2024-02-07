@@ -291,7 +291,43 @@
                     </table:template>
                 </table:Column>
                 
+                <!-- Xblck -->
+                <!-- <table:Column
+                    id="columnXblck"
+                    width="11rem"
+                    sortProperty="Xblck" filterProperty="Xblck"
+                >
+                    <Label
+                        id="labelXblck"
+                        text="{i18n>Xblck}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textXblck"
+                            text="{Xblck}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column> -->
 
+                <!-- Xdele -->
+                <!-- <table:Column
+                    id="columnXdele"
+                    width="11rem"
+                    sortProperty="Xdele" filterProperty="Xdele"
+                >
+                    <Label
+                        id="labelXdele"
+                        text="{i18n>Xdele}"
+                    />
+                    <table:template>
+                        <Text
+                            id="textXdele"
+                            text="{Xdele}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column> -->
             </table:columns>
         </table:Table>
 
